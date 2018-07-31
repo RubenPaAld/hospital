@@ -1,0 +1,18 @@
+<div class="row justify-content-center">
+  <h3>{{leyenda}}</h3>
+</div>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <button class="btn btn-outline-primary" type="button" (click)="decrementar()">
+      <i class="fas fa-minus"></i>
+    </button>
+  </div>
+  <input #bar type="number" min="0" max="100" class="form-control"
+         name="porcentaje" [(ngModel)]="porcentaje"  (ngModelChange)="inputChange()"
+         style="height: 40px">
+  <div class="input-group-append">
+    <button class="btn btn-outline-primary" type="button" (click)="incrementar()">
+      <i class="fas fa-plus"></i>
+    </button>
+  </div>
+</div>

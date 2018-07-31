@@ -1,3 +1,6 @@
-<p>
-  graficas1 works!
-</p>
+<div class="row justify-content-center">
+  <div class="col-auto mb-5" *ngFor="let graf of graficos" style="min-width: 28rem">
+    <h4>{{graf.leyenda}}</h4>
+    <app-grafica [doughnutChartData]="graf.data" [doughnutChartLabels]="graf.labels" [leyend]="graf.leyenda"></app-grafica>
+  </div>
+</div>

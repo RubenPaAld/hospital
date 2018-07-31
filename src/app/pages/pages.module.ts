@@ -6,18 +6,28 @@ import {Graficas1Component} from './graficas1/graficas1.component';
 import {PagesComponent} from './pages.component';
 import {SharedModule} from '../shared/shared.module';
 import {PAGES_ROUTES} from './pages.routes';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {FormsModule} from '@angular/forms';
+import {LoadBarComponent} from '../components/load-bar/load-bar.component';
+import {ChartsModule} from 'ng2-charts';
+import {GraficaComponent} from '../components/grafica/grafica.component';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
-    PAGES_ROUTES
+    NgbModule.forRoot(),
+    PAGES_ROUTES,
+    FormsModule,
+    ChartsModule
   ],
   declarations: [
-     DashboardComponent,
-     ProgressComponent,
-     Graficas1Component,
-    PagesComponent
+      DashboardComponent,
+      ProgressComponent,
+      Graficas1Component,
+      PagesComponent,
+      LoadBarComponent,
+      GraficaComponent
   ],
   exports: [
     DashboardComponent,
