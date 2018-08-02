@@ -3,15 +3,14 @@
 </div>
 <div class="input-group mb-3">
   <div class="input-group-prepend">
-    <button class="btn btn-outline-primary" type="button" (click)="decrementar()">
+    <button class="btn btn-outline-secondary" type="button" (click)="decrementar()">
       <i class="fas fa-minus"></i>
     </button>
   </div>
   <input #bar type="number" min="0" max="100" class="form-control"
-         name="porcentaje" [(ngModel)]="porcentaje"  (ngModelChange)="inputChange()"
-         style="height: 40px">
+         name="porcentaje" [(ngModel)]="porcentaje"  (ngModelChange)="inputChange()">
   <div class="input-group-append">
-    <button class="btn btn-outline-primary" type="button" (click)="incrementar()">
+    <button class="btn btn-outline-secondary" type="button" (click)="incrementar()">
       <i class="fas fa-plus"></i>
     </button>
   </div>

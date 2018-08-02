@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {SettingsService} from './services/settings/settings.service';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  nombre = 'ruben';
-  apellido = 'pallares';
+
+  constructor(private settings: SettingsService) {
+
+  }
 }

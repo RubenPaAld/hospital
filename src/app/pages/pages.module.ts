@@ -11,6 +11,7 @@ import {FormsModule} from '@angular/forms';
 import {LoadBarComponent} from '../components/load-bar/load-bar.component';
 import {ChartsModule} from 'ng2-charts';
 import {GraficaComponent} from '../components/grafica/grafica.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import {GraficaComponent} from '../components/grafica/grafica.component';
       Graficas1Component,
       PagesComponent,
       LoadBarComponent,
-      GraficaComponent
+      GraficaComponent,
+      AccountSettingsComponent
   ],
   exports: [
     DashboardComponent,

@@ -29,6 +29,8 @@
     "normalize.css": "^8.0.0",
     "popper.js": "^1.14.3",
     "rxjs": "^6.0.0",
+    "store": "^2.0.12",
+    "store.js": "^1.0.4",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
