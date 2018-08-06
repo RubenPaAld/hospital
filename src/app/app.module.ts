@@ -9,7 +9,8 @@ import {APP_ROUTES} from './app.routes';
 import { RegisterComponent } from './login/register.component';
 import {PagesModule} from './pages/pages.module';
 import {ServiceModule} from './services/service.module';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {SweetAlert2Module} from '@toverux/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,14 @@ import {FormsModule} from '@angular/forms';
     APP_ROUTES,
     NgbModule.forRoot(),
     ServiceModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    SweetAlert2Module.forRoot({
+      buttonsStyling: false,
+      customClass: 'modal-content',
+      confirmButtonClass: 'btn btn-primary',
+      cancelButtonClass: 'btn btn-danger ml-2'
+    })
   ],
   providers: [
   ],
