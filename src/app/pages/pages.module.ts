@@ -14,6 +14,9 @@ import {GraficaComponent} from '../components/grafica/grafica.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import {PipesModule} from '../pipes/pipes.module';
+import { ProfileComponent } from './profile/profile.component';
+import {FileUploadModule} from 'ng2-file-upload';
 
 @NgModule({
   imports: [
@@ -22,7 +25,9 @@ import { RxjsComponent } from './rxjs/rxjs.component';
     NgbModule.forRoot(),
     PAGES_ROUTES,
     FormsModule,
-    ChartsModule
+    ChartsModule,
+    PipesModule,
+    FileUploadModule,
   ],
   declarations: [
       DashboardComponent,
@@ -33,7 +38,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
       GraficaComponent,
       AccountSettingsComponent,
       PromesasComponent,
-      RxjsComponent
+      RxjsComponent,
+      ProfileComponent
   ],
   exports: [
     DashboardComponent,

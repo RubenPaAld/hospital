@@ -27,6 +27,7 @@ import {SweetAlert2Module} from '@toverux/ngx-sweetalert2';
     ServiceModule,
     FormsModule,
     ReactiveFormsModule,
+
     SweetAlert2Module.forRoot({
       buttonsStyling: false,
       customClass: 'modal-content',

@@ -7,6 +7,7 @@ import {AccountSettingsComponent} from './account-settings/account-settings.comp
 import {PromesasComponent} from './promesas/promesas.component';
 import {RxjsComponent} from './rxjs/rxjs.component';
 import {LoginGuard} from '../services/service.index';
+import {ProfileComponent} from './profile/profile.component';
 
 export const pagesRoutes: Routes = [
   { path: '',
@@ -17,6 +18,7 @@ export const pagesRoutes: Routes = [
       {path: 'progress', component: ProgressComponent, data: { titulo: 'Progress'}},
       {path: 'graficas1', component: Graficas1Component, data: { titulo: 'Graficas'}},
       {path: 'account-settings', component: AccountSettingsComponent, data: { titulo: 'Opciones'}},
+      {path: 'perfil', component: ProfileComponent, data: { titulo: 'Perfil de usuario'}},
       {path: 'promesas', component: PromesasComponent, data: { titulo: 'Promesas'}},
       {path: 'rxjs', component: RxjsComponent, data: { titulo: 'Rxjs'}},
       {path: '', pathMatch: 'full', redirectTo: '/dashboard'}
