@@ -1,0 +1,26 @@
+<div  *ngIf="!mus.oculto" class="modal" tabindex="-1" role="dialog" style="display: block; background-color: rgba(0,0,0,0.4)">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center">Modal title</h5>
+        <button (click)="cerrarModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" align="center">
+
+        <img *ngIf="!imagenTemporal" [src]="'xxx' |imagen" style="max-height: 300px">
+        <img *ngIf="imagenTemporal" [src]="imagenTemporal" style="max-height: 300px">
+
+        <div class="custom-file mb-2">
+          <input type="file" (change)="seleccionImagen($event.target.files[0])" class="custom-file-input" id="inputGroupFile01">
+          <label class="custom-file-label text-left" for="inputGroupFile01">Choose file</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button (click)="subirImagen()" [disabled]="!imagenTemporal" type="button" class="btn btn-primary">Subir imagen</button>
+        <button (click)="cerrarModal()" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

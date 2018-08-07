@@ -35,10 +35,10 @@ export class RegisterComponent implements OnInit {
     }, {validators: this.equalPasswords('password', 'password2')} );
 
     this.forma.setValue({
-      nombre: 'Test',
-      correo: 'espartanodicanda@fmais.com',
-      password: '123456',
-      password2: '1234',
+      nombre: 'test',
+      correo: 'test@test.com',
+      password: '123',
+      password2: '123',
       condiciones: true
     });
   }
