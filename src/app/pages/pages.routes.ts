@@ -9,6 +9,9 @@ import {RxjsComponent} from './rxjs/rxjs.component';
 import {LoginGuard} from '../services/service.index';
 import {ProfileComponent} from './profile/profile.component';
 import {UsuariosComponent} from './usuarios/usuarios.component';
+import {HospitalesComponent} from './hospitales/hospitales.component';
+import {MedicoComponent} from './medicos/medico.component';
+import {MedicosComponent} from './medicos/medicos.component';
 
 export const pagesRoutes: Routes = [
   { path: '',
@@ -24,6 +27,9 @@ export const pagesRoutes: Routes = [
       {path: 'rxjs', component: RxjsComponent, data: { titulo: 'Rxjs'}},
       //Mantenimiento
       {path: 'usuarios', component: UsuariosComponent, data: { titulo: 'Mantenimiento de usuarios'}},
+      {path: 'hospitales', component: HospitalesComponent, data: { titulo: 'Mantenimiento de hospitales'}},
+      {path: 'medicos', component: MedicosComponent, data: { titulo: 'Mantenimiento de medicos'}},
+      {path: 'medico/:id', component: MedicoComponent, data: { titulo: 'Medico',}},
       {path: '', pathMatch: 'full', redirectTo: '/dashboard'}
     ]
   },

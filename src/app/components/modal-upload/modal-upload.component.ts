@@ -15,7 +15,7 @@ export class ModalUploadComponent implements OnInit {
 
   constructor(public  sa: SubirArchivoService, public mus: ModalUploadService) {}
 
-  public seleccionImagen( archivo ) {
+  public seleccionImagen( archivo:File ) {
 
     if (!archivo) {
       this.imagenSubir = null;

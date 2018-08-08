@@ -8,6 +8,7 @@ export class ImagenPipe implements PipeTransform {
 
   transform(img: string, tipo: string = 'usuario'): any {
 
+
     let url = URL_SERVICES + '/imagenes';
 
     if (!img)
@@ -32,6 +33,7 @@ export class ImagenPipe implements PipeTransform {
 
       default:  console.log('no existe el tipo ' , tipo);
                 url += '/usuarios/xxx';
+      break;
     }
     return url;
   }

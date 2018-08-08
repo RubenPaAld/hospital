@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <input #input (keyup)="buscarHospitales(input.value)" type="text" class="form-control" placeholder="Buscar usuarios">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row justify-content-center" *ngIf="cargando">
+  <div class="col-sm-4">
+    <div class="alert alert-warning text-center">
+      <strong class="d-block">Cargando...</strong>
+      <span class="d-block"><i class="fas fa-sync fa-2x fa-spin"></i></span>
+      <span>Espere por favor</span>
+    </div>
+  </div>
+</div>
+
+<div class="row justify-content-center" *ngIf="!cargando">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="row justify-content-between">
+          <h3 class="card-title ml-4">Usuarios registrados ( <small>{{totalRegistros}}</small> )</h3>
+          <button (click)="nuevoHospital()" class="mr-4 btn btn-warning">Nuevo hospital</button>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">Imagen</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Opciones</th>
+            </tr>
+            </thead>
+            <tbody class="align-items-center">
+            <tr *ngFor="let hospital of hospitales; let index = index">
+              <td class="align-middle">
+                <img (click)="mostrarModal(hospital._id)" [src]="hospital.img | imagen:'hospital'" class="img-circle pointer" style="max-width: 75px">
+              </td>
+              <td class="align-middle">
+                <input type="text" [name]="hospital.nombre" class="form-control" [(ngModel)]="hospital.nombre">
+              </td>
+              <td class="align-middle">
+                <button class="btn btn-primary mr-sm-1" (click)="actualizarHospital(hospital)">
+                  <i class="fas fa-upload"></i>
+                </button>
+                <button class="btn btn-danger" (click)="borrarHospital(hospital)">
+                  <i class="fas fa-times"></i>
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
