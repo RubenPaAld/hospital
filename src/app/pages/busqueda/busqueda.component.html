@@ -1,0 +1,98 @@
+<div class="row justify-content-center justify-content-md-start">
+  <div class="col col-md-8" *ngIf="usuarios.length > 0">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Usuarios</h4>
+
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Foto</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Opciones</th>
+            </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let usuario of usuarios; let index = index">
+                <th class="align-middle" scope="row">{{index}}</th>
+                <td class="align-middle">
+                  <img class="img-fluid" [src]="usuario.img | imagen" [alt]="usuario.nombre+' imagen'" style="max-width: 75px">
+                </td>
+                <td class="align-middle">{{usuario.nombre}}</td>
+                <td class="align-middle">
+                  <button [routerLink]="['/usuarios']" [queryParams]="{ usuario:usuario.nombre  }"  class="btn btn-primary align-middle">Editar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col col-md-8" *ngIf="hospitales.length > 0">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Hospitales</h4>
+
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Foto</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Opciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let hospital of hospitales; let index = index">
+              <th class="align-middle" scope="row">{{index}}</th>
+              <td class="align-middle">
+                <img class="img-fluid" [src]="hospital.img | imagen:'hospital'" [alt]="hospital.nombre+' imagen'" style="max-width: 75px">
+              </td>
+              <td class="align-middle">{{hospital.nombre}}</td>
+              <td class="align-middle">
+                <button [routerLink]="['/hospitales']" [queryParams]="{ hospital:hospital.nombre  }" class="btn btn-primary align-middle">Editar</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col col-md-8" *ngIf="medicos.length > 0">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Medicos</h4>
+
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Foto</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Opciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let medico of medicos; let index = index">
+              <th class="align-middle" scope="row">1</th>
+              <td class="align-middle">
+                <img class="img-fluid" [src]="medico.img | imagen:'medico'" [alt]="medico.nombre+' imagen'" style="max-width: 75px">
+              </td>
+              <td class="align-middle">{{medico.nombre}}</td>
+              <td class="align-middle">
+                <button [routerLink]="['/medico',medico._id]" class="btn btn-primary align-middle">Editar</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

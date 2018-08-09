@@ -6,12 +6,13 @@ import {PagesComponent} from './pages.component';
 import {AccountSettingsComponent} from './account-settings/account-settings.component';
 import {PromesasComponent} from './promesas/promesas.component';
 import {RxjsComponent} from './rxjs/rxjs.component';
-import {LoginGuard} from '../services/service.index';
+import {AdminGuard, LoginGuard} from '../services/service.index';
 import {ProfileComponent} from './profile/profile.component';
 import {UsuariosComponent} from './usuarios/usuarios.component';
 import {HospitalesComponent} from './hospitales/hospitales.component';
 import {MedicoComponent} from './medicos/medico.component';
 import {MedicosComponent} from './medicos/medicos.component';
+import {BusquedaComponent} from './busqueda/busqueda.component';
 
 export const pagesRoutes: Routes = [
   { path: '',
@@ -25,11 +26,12 @@ export const pagesRoutes: Routes = [
       {path: 'perfil', component: ProfileComponent, data: { titulo: 'Perfil de usuario'}},
       {path: 'promesas', component: PromesasComponent, data: { titulo: 'Promesas'}},
       {path: 'rxjs', component: RxjsComponent, data: { titulo: 'Rxjs'}},
+      {path: 'busqueda/:termino', component: BusquedaComponent, data: { titulo: 'Busqueda'}},
       //Mantenimiento
-      {path: 'usuarios', component: UsuariosComponent, data: { titulo: 'Mantenimiento de usuarios'}},
-      {path: 'hospitales', component: HospitalesComponent, data: { titulo: 'Mantenimiento de hospitales'}},
-      {path: 'medicos', component: MedicosComponent, data: { titulo: 'Mantenimiento de medicos'}},
-      {path: 'medico/:id', component: MedicoComponent, data: { titulo: 'Medico',}},
+      {path: 'usuarios', component: UsuariosComponent, canActivate: [AdminGuard], data: { titulo: 'Mantenimiento de usuarios'}},
+      {path: 'hospitales', component: HospitalesComponent, canActivate: [AdminGuard], data: { titulo: 'Mantenimiento de hospitales'}},
+      {path: 'medicos', component: MedicosComponent, canActivate: [AdminGuard], data: { titulo: 'Mantenimiento de medicos'}},
+      {path: 'medico/:id', component: MedicoComponent, canActivate: [AdminGuard], data: { titulo: 'Medico',}},
       {path: '', pathMatch: 'full', redirectTo: '/dashboard'}
     ]
   },

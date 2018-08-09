@@ -90,6 +90,8 @@ export class RegisterComponent implements OnInit {
 
     this.us.createUser(user).subscribe( resp =>{
       this.router.navigate(['/login']);
+    },error => {
+
     });
   }
 

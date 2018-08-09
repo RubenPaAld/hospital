@@ -4,6 +4,7 @@ import {Hospital} from '../../models/hospital.model';
 import {ImagenPipe} from '../../pipes/imagen.pipe';
 import swal from 'sweetalert2';
 import {ModalUploadService} from '../../components/modal-upload/modal-upload.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-hospitales',
@@ -16,10 +17,21 @@ export class HospitalesComponent implements OnInit {
   cargando: boolean;
   totalRegistros: number;
 
-  constructor(private hs:HospitalesService, private mus:ModalUploadService) { }
+  qHospital:string;
+
+  constructor(private hs:HospitalesService, private mus:ModalUploadService, private actRout:ActivatedRoute) {
+    this.actRout.queryParams.subscribe( params => {
+      this.qHospital = params['hospital'];
+    })
+  }
 
   ngOnInit() {
-    this.cargarHospitales();
+
+    if (this.qHospital)
+      this.buscarHospitales(this.qHospital);
+    else
+      this.cargarHospitales();
+
     this.mus.notificaicon.subscribe( resp => {
       this.cargarHospitales();
     });
@@ -32,6 +44,7 @@ export class HospitalesComponent implements OnInit {
     } else {
       this.cargando = true;
       this.hs.buscarHospitales(termino).subscribe( (hospitales: Hospital[]) => {
+        this.totalRegistros = hospitales.length;
         this.hospitales = hospitales;
         console.log(hospitales);
         this.cargando = false;

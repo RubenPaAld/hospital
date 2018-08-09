@@ -9,12 +9,13 @@ import {UsuarioModel} from '../../models/usuario.model';
 })
 export class SiderbarComponent implements OnInit {
 
-  usuario: UsuarioModel
+  usuario: UsuarioModel;
 
   constructor(public sidebarService: SidebarService, public us: UsuarioService) { }
 
   ngOnInit() {
-    this.usuario = this.us.usuario
+    this.usuario = this.us.usuario;
+    this.sidebarService.cargarMenu();
   }
 
 }

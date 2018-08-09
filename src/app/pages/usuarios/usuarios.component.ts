@@ -4,6 +4,8 @@ import {UsuarioService} from '../../services/service.index';
 import swal from 'sweetalert2';
 import {ImagenPipe} from '../../pipes/imagen.pipe';
 import {ModalUploadService} from '../../components/modal-upload/modal-upload.service';
+import {HttpParams} from '@angular/common/http';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-usuarios',
@@ -17,11 +19,24 @@ export class UsuariosComponent implements OnInit {
   offset: number = 0;
   totalRegistros: number = 0;
   cargando: boolean;
+  qUsuario:string;
 
-  constructor(private  us: UsuarioService, public mus: ModalUploadService) { }
+
+
+  constructor(private  us: UsuarioService, public mus: ModalUploadService, private actRout:ActivatedRoute) {
+    this.actRout.queryParams.subscribe( params => {
+      this.qUsuario = params['usuario'];
+    })
+  }
+
 
   ngOnInit() {
-    this.cargarUsuarios();
+
+    if (this.qUsuario)
+      this.buscarUsuarios(this.qUsuario);
+    else
+      this.cargarUsuarios();
+
     this.mus.notificaicon.subscribe( resp => {
       this.cargarUsuarios();
     });

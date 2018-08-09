@@ -10,6 +10,8 @@ declare function init_plugins();
 })
 export class NoPageFoundComponent implements OnInit {
 
+  anio: number = new Date().getFullYear();
+
   constructor() { }
 
   ngOnInit() {
